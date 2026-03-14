@@ -1,85 +1,245 @@
-<html>
-    <head>
-        <style>
-            body {
-                background-color: black;
-            }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Viony Lee</title>
+    <style>
+        /* --- CSS (Styling) --- */
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --secondary-color: #64748b;
+        }
 
-            .sun {
-                width: 100px;
-                height: 100px;
-                background-color: yellow;
-                border: 1px solid yellow;
-                border-radius: 50%;
-                position: absolute;
-                top: 450px;
-                left: 450px;
-                box-shadow: 0 0 20px white;
-            }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            .earth {
-                width: 400px;
-                height: 400px;
-                border-width: 1px;
-                border-style: solid;
-                border-color: white transparent transparent transparent;
-                border-radius: 100%;
-                position: absolute;
-                top: 300px;
-                left: 300px;
-                animation: orbit 5s linear infinite;
-            }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 5rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        #beranda {
+            text-align: center;
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+        }
+
+        #beranda h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #beranda h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        #beranda p {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* About & Skills */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Kontak Section */
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .contact-details p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-details strong {
+            display: inline-block;
+            width: 120px;
+            color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #1e293b;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Viony Lee</h2>
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="beranda">
+        <h1>Halo, saya Viony Lee</h1>
+        <h3>Mahasiswa Computer Science</h3>
+        <p>National Quemoy University</p>
+        <a href="#kontak" class="btn">Hubungi Saya</a>
+    </section>
+
+    <section id="tentang">
+        <h2 class="section-title">Tentang Saya</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto;">Saya adalah mahasiswa jurusan Computer Science di National Quemoy University. Saya antusias dalam mempelajari dan mengembangkan teknologi, dengan fokus pada pemrograman dan pengembangan perangkat lunak.</p>
+        
+        <div class="skills-container">
+            <span class="skill-tag">HTML & CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Arduino</span>
             
-            .earth::before {
-                content: '';
-                position: absolute;
-                top: 50px;
-                left: 320px;
-                background-color: aqua;
-                border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                box-shadow: 0 0 10px aquamarine;
-            }
-
-            .moon {
-                width: 150px;
-                height: 150px;
-                border-width: 1px;
-                border-style: solid;
-                border-color: white transparent transparent transparent;
-                border-radius: 100%;
-                position: absolute;
-                top: 0px;
-                left: 270px;
-                animation: orbit 5s linear infinite;
-            }
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Visual Studio</span>
             
-            .moon::before {
-                content: '';
-                position: absolute;
-                top: 10px;
-                left: 110px;
-                background-color: wheat;
-                border-radius: 50%;
-                width: 30px;
-                height: 30px;
-                box-shadow: 0 0 10px silver;
-            }
-
-            @keyframes orbit {
-                to {
-                    transform: rotate(360deg);
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="sun"></div>
-        <div class="earth">
-          <div class="moon"></div>
+            <span class="skill-tag">Bahasa Indonesia</span>
+            <span class="skill-tag">Bahasa Inggris</span>
+            <span class="skill-tag">Bahasa Mandarin</span>
         </div>
-    </body>
-</html>
+    </section>
 
-sumber kode tersebut
+    <section id="kontak">
+        <h2 class="section-title">Informasi Kontak</h2>
+        <div class="contact-wrapper">
+            <div class="contact-details">
+                <p><strong>Email:</strong> <a href="mailto:vionylee07@gmail.com">vionylee07@gmail.com</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/vionylele" target="_blank">github.com/vionylele</a></p>
+                <p><strong>Telepon:</strong> +886 965433859</p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/6288263520268" target="_blank">+62 88263520268</a></p>
+                <p><strong>Line ID:</strong> ikanlele2007</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Viony Lee. Dibuat dengan HTML, CSS, & JS.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
