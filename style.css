@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- Variabel Warna & Tema Tema Cyber/Neon Modern --- */
+:root {
+    --bg-main: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: #a3a3a3;
+    --accent-1: #06b6d4; /* Cyan */
+    --accent-2: #8b5cf6; /* Purple */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Latar Belakang Abstrak Bercahaya */
+.blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.4;
+    animation: float 10s infinite ease-in-out;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-1);
+    top: -10%;
+    left: -10%;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-2);
+    bottom: -10%;
+    right: -5%;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(30px) scale(1.1); }
+}
+
+/* --- Navigasi --- */
+header {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Pengaturan Presisi Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px;      /* Membatasi tinggi maksimum agar tidak menutupi web */
+    width: auto;       /* Menjaga proporsi gambar */
+    max-width: 180px;  /* Batasan lebar maksimum */
+    object-fit: contain;
+    display: block;
+}
+
+.logo-text {
+    display: none;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.logo-text span {
+    color: var(--accent-1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+.language-toggle {
+    display: inline-flex;
+    gap: 0.4rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+}
+
+.lang-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 0.22rem 0.65rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.lang-btn.active {
+    background: var(--accent-1);
+    color: #050505;
+}
+/* --- Teks Gradien --- */
+.gradient-text {
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Komponen Glassmorphism (Kartu Transparan) --- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* --- Layout Utama --- */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 2rem 4rem;
+}
+
+section {
+    margin-bottom: 7rem;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* --- Beranda / Hero --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 5rem 0;
+    align-items: flex-start;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.typing-container {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    min-height: 36px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--accent-1);
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero p {
+    max-width: 650px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Tombol Menyala */
+.btn-glow {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    border-radius: 30px;
+    border: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 2px; right: 2px; bottom: 2px; left: 2px;
+    background: var(--bg-main);
+    border-radius: 30px;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.btn-glow:hover::before {
+    opacity: 0;
+}
+
+/* --- Grid & List --- */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.info-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+}
+
+.info-list span:first-child { color: var(--text-secondary); }
+
+/* --- Keahlian --- */
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-group h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--accent-1);
+    transition: 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--accent-1);
+    color: var(--bg-main);
+}
+
+/* --- Kontak --- */
+.contact-grid {
+    display: grid;
+    /* Ubah dari 200px menjadi 280px agar kotaknya lebih lebar */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 1.5rem;
+}
+
+.contact-card span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.contact-card a, .contact-card p {
+    color: var(--accent-1);
+    text-decoration: none;
+    font-size: 1.05rem; /* Sedikit dikecilkan agar lebih proporsional */
+    font-weight: 600;
+    /* Ubah break-all menjadi break-word agar nomor telepon/email tidak terpotong di tengah huruf/angka */
+    word-break: break-word; 
+}
+
+/* --- Scroll Animation Classes --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--glass-border);
+}
+
+@media (max-width: 768px) {
+    .grid-2-col { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+    .nav-links { display: none; } /* Bisa ditambahkan hamburger menu nanti */
+}
